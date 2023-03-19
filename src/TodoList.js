@@ -15,9 +15,9 @@ export default function TodoList() {
         <ul className="list-wrapper">
             {todos.map((todo) => (
                 <li key={todo} className="list-item">
-                    <div style={styling} className={selections.includes(todo) ? 'check' : null}>
+                    <div style={styling} >
                         <input type='checkbox' checked={selections.includes(todo)} onChange={(e)=> {dispatch({type: 'updateSelections', payload: todo})}} className='space'/>
-                        <p>{todo}</p>
+                        <p className={selections.includes(todo) ? 'check' : null}>{todo}</p>
                         <div className="button-wrapper">
                             <button type="button" className="button" onClick={(e) => {dispatch({type: 'editTodo', payload: todo})}}>Edit</button>
                             <button type="button" className="button" onClick={(e) => {dispatch({type: 'deleteTodo', payload: todo})}}>Delete</button>
